@@ -14,3 +14,5 @@ def update_news():
         .sort_values(by='tgl',ascending=False)\
             .reset_index(drop=True)\
                 .to_csv('stunting_data/news_stunting.csv', sep=';', encoding='utf-8', index=False)
+
+update_news()
