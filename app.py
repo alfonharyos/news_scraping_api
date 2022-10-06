@@ -24,7 +24,7 @@ def do_scrapeBase():
             max_page = request.args\
                 .get('max_page', default=100, type=int)
         ))
-        s='ok'
+        s='finish'
     except:s='error'
     return s
 
