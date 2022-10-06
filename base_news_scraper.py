@@ -231,10 +231,13 @@ def scrape_news(max_page:int=100, tag:str='stunting'):
             # normalisasi tanggal --> tahun-bulan-hari
             tgl_norm=[]
             for t in tgl:
-                t = t.split(':')[0].lower().split()[:3]              # ambil hari, bulan, tahun
-                t = " ".join(bulan_dict.get(ele, ele) for ele in t)  # merubah bulan ke b.ing
-                t = parser.parse(t).strftime('%Y-%m-%d')             # mengubah ke format tahun-bulan-hari
-                tgl_norm.append(t)
+                if ('detik' in t) or ('menit' in t) or ('jam' in t):
+                    t = date.today().strftime('%Y-%m-%d')
+                else:
+                    t = t.split(':')[0].lower().split()[:3]              # ambil hari, bulan, tahun
+                    t = " ".join(bulan_dict.get(ele, ele) for ele in t)  # merubah bulan ke b.ing
+                    t = parser.parse(t).strftime('%Y-%m-%d')             # mengubah ke format tahun-bulan-hari
+                    tgl_norm.append(t)
             tgl_norm
 
             # convert to dataframe
