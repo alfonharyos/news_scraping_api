@@ -5,7 +5,7 @@ from dateutil import parser
 from datetime import date, timedelta
 
 # Request the page
-def get_news(max_page:int=100, tag:str='stunting'):
+def scrape_news(max_page:int=100, tag:str='stunting'):
 
     bulan_dict={
                 'januari':'jan',
